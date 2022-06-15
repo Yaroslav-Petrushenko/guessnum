@@ -8,7 +8,11 @@
 </head>
 <body>
     <form action="range.php" method="POST">
-        <?php 
+
+        <?php
+        
+
+        
             $password = $_POST["password"];
             $chooseStart = $_POST["chooseStart"];
             $chooseEnd = $_POST["chooseEnd"];
@@ -24,10 +28,10 @@
             if($balTree < 20){
                 if(isset($_POST["run"])){
                     if($ansNum > $password){
-                        echo("<p>Number is small. $ansNum</p>");
+                        echo("<p>Number is small. </p>");
                         //$balTree += 1;
                     }else if ($ansNum < $password){
-                        echo("<p>Number is big. $ansNum</p>");
+                        echo("<p>Number is big. </p>");
                         //$balTree += 1;
                     }else if ($ansNum = $password){
 
@@ -37,21 +41,21 @@
 
 
                         if($balOneGen == 1){
-                            $balOneGen = 10;
+                            $balOneGen = 15;
                         }else{
                             $balOneGen = 0;
                         }
                         if($balTwoGen == 1){
-                            $balTwoGen = 20;
+                            $balTwoGen = 40;
                         }else{
                             $balTwoGen = 0;
                         }
                         if($balTreeGen == 0){
-                            $balTreeGen = 10;
+                            $balTreeGen = 15;
                         }else if($balTreeGen < 5){
-                            $balTreeGen = 10 - $balTreeGen;
+                            $balTreeGen = 15 - $balTreeGen;
                         }else{
-                            $balTreeGen = -20;
+                            $balTreeGen = -10;
                         }
 
                         $balGeneral = $balOneGen + $balTwoGen + $balTreeGen;
@@ -79,7 +83,7 @@
                                 echo("<option value=$i>$i</option>");
                         }
                     }else{
-                        for($i = $chooseRange; $i <= $chooseEnd; $i++){
+                        for($i = $chooseRange+1; $i <= $chooseEnd; $i++){
                             echo("<option value=$i>$i</option>");
                         }
                     }
@@ -89,12 +93,12 @@
                 echo("<p>You didn't guess the number</p>");
                 //echo("<p>Attempts ended ($balTree)</p>");
                 
-                echo("<p>Your mark is </p>");
+                echo("<p>Your number is </p>");
                 
-                $balTree += 1;
+                //$balTree += 1;
             }
     
-            if($balTree < 21){
+            if($balTree < 5){
                 if($ansNum != $password){
                     echo("<input type='submit' value='run' name='run'>");
                 }

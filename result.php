@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess the number of 5</title>
+    <title>Guess the number</title>
 </head>
 <body>
     
@@ -38,7 +38,7 @@
 
                 $balGeneral = $balOneGen + $balTwoGen;
                 echo("<p>You guessed it!</p>");
-                echo("<p>Mark is: $password</p>");
+                echo("<p>Number is: $password</p>");
                 //echo("<p>Your mark is $balGeneral</p>");
                 session_start();
                 $_SESSION["sPoint"] += $balGeneral;
@@ -56,23 +56,23 @@
                 $password = $_POST["password"];
                 $chooseStart = $_POST["chooseStart"];
                 $chooseEnd = $_POST["chooseEnd"];
-                $chooseRange = $chooseStart + 4;
+                $chooseRange = $chooseStart + 5;
                 $ansNum = $_POST["ansNum"];
                 if($_POST["password"] <= $chooseRange && $_POST["ansNum"] <= $chooseRange){
-                    $b2 = 1;
+                    $balTwo = 1;
                 }else if($_POST["password"] >= $chooseRange && $_POST["ansNum"] >= $chooseRange){
-                    $b2 = 1;
+                    $balTwo = 1;
                 }
                 
 
                 if(isset($_POST["run"])){
                     if($ansNum > $password){
-                        echo("<p>Number is small $ansNum</p>");
+                        echo("<p>Number is small </p>");
                     }else if ($ansNum < $password){
-                        echo("<p>Number is big $ansNum</p>");
+                        echo("<p>Number is big /p>");
                     }else if ($ansNum = $password){
                         echo("<p>You guessed it!</p>");
-                        echo("<p>Mark is: $ansNum</p>");
+                        echo("<p>Number is: $ansNum</p>");
                         
                     }
                 }
@@ -81,11 +81,11 @@
                 if($ansNum != $password){
                     echo("<select name='ansNum'>");
                     if($_POST["password"] <= $chooseRange){
-                        for($i = $chooseStart; $i <= $chooseRange; $i++){
+                        for($i = $chooseStart+1; $i <= $chooseRange; $i++){
                                 echo("<option value=$i>$i</option>");
                         }
                     }else{
-                        for($i = $chooseRange+1; $i <= $chooseEnd; $i++){
+                        for($i = $chooseRange; $i <= $chooseEnd; $i++){
                                 echo("<option value=$i>$i</option>");
                         }
                     }
