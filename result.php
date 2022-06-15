@@ -81,11 +81,11 @@
                 if($ansNum != $password){
                     echo("<select name='ansNum'>");
                     if($_POST["password"] <= $chooseRange){
-                        for($i = $chooseStart+1; $i <= $chooseRange; $i++){
+                        for($i = $chooseStart; $i <= $chooseRange; $i++){
                                 echo("<option value=$i>$i</option>");
                         }
                     }else{
-                        for($i = $chooseRange; $i <= $chooseEnd; $i++){
+                        for($i = $chooseRange+1; $i <= $chooseEnd; $i++){
                                 echo("<option value=$i>$i</option>");
                         }
                     }

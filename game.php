@@ -7,7 +7,7 @@
     <title>They say you see the future</title>
 </head>
 <body>
-    <form action="result.php" method="POST">
+    <form action="range.php" method="POST">
         <?php
                     $password = $_POST["password"];
                     $balOne = $_POST["balOne"];
