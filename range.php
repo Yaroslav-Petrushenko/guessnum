@@ -10,7 +10,7 @@
     <form action="range.php" method="POST">
 
         <?php
-        
+            
 
         
             $password = $_POST["password"];
